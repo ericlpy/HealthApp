@@ -61,7 +61,7 @@ struct ContentView: View {
                 .tabItem() {
                     Image(systemName: "heart")
                 }
-            }
+            }.accentColor(.black)
         }
     }
 
