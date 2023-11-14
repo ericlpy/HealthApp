@@ -13,6 +13,10 @@
 		5D4EF2D52B00CD5E00D15739 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D42B00CD5E00D15739 /* Preview Assets.xcassets */; };
 		5D4EF2D72B00CD5E00D15739 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D62B00CD5E00D15739 /* Persistence.swift */; };
 		5D4EF2DA2B00CD5E00D15739 /* HealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D82B00CD5E00D15739 /* HealthApp.xcdatamodeld */; };
+		5D4EF2FC2B034D4900D15739 /* DietaryPlaningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */; };
+		5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FD2B034D5600D15739 /* HomepageView.swift */; };
+		5D4EF3002B034D6A00D15739 /* FitnessTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */; };
+		5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		5D4EF2D42B00CD5E00D15739 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5D4EF2D62B00CD5E00D15739 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5D4EF2D92B00CD5E00D15739 /* HealthApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthApp.xcdatamodel; sourceTree = "<group>"; };
+		5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPlaningView.swift; sourceTree = "<group>"; };
+		5D4EF2FD2B034D5600D15739 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTrackingView.swift; sourceTree = "<group>"; };
+		5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataManagementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 			children = (
 				5D4EF2CD2B00CD5C00D15739 /* HealthAppApp.swift */,
 				5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */,
+				5D4EF2FA2B034D0800D15739 /* Views */,
 				5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */,
 				5D4EF2D62B00CD5E00D15739 /* Persistence.swift */,
 				5D4EF2D82B00CD5E00D15739 /* HealthApp.xcdatamodeld */,
@@ -71,6 +80,17 @@
 				5D4EF2D42B00CD5E00D15739 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5D4EF2FA2B034D0800D15739 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */,
+				5D4EF2FD2B034D5600D15739 /* HomepageView.swift */,
+				5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */,
+				5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */,
+				5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */,
 				5D4EF2D72B00CD5E00D15739 /* Persistence.swift in Sources */,
+				5D4EF2FC2B034D4900D15739 /* DietaryPlaningView.swift in Sources */,
+				5D4EF3002B034D6A00D15739 /* FitnessTrackingView.swift in Sources */,
 				5D4EF2DA2B00CD5E00D15739 /* HealthApp.xcdatamodeld in Sources */,
 				5D4EF2D02B00CD5C00D15739 /* ContentView.swift in Sources */,
 				5D4EF2CE2B00CD5C00D15739 /* HealthAppApp.swift in Sources */,
