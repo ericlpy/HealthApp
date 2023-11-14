@@ -9,7 +9,13 @@ import SwiftUI
 
 struct FitnessTrackingView: View {
     var body: some View {
-        Text("fitness!")
+        VStack {
+            Text("Fitness Tracking")
+                .font(.title2)
+                .bold()
+            Divider()
+            Spacer()
+        }
     }
 }
 

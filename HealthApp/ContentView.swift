@@ -11,30 +11,57 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
 //        animation: .default)
 //    private var items: FetchedResults<Item>
 
     var body: some View {
-        TabView {
-            HomepageView()
+        VStack {
+            TabView {
+                ZStack {
+                    VStack {
+                        HomepageView()
+                        Divider()
+                    }.padding(.vertical)
+                }
+                .background(.thinMaterial)
                 .tabItem() {
                     Image(systemName: "house")
                 }
-            DietaryPlaningView()
+                ZStack {
+                    VStack {
+                        DietaryPlaningView()
+                        Divider()
+                    }.padding(.vertical)
+                }
+                .background(.thinMaterial)
                 .tabItem() {
                     Image(systemName: "fork.knife")
                 }
-            FitnessTrackingView()
+                ZStack {
+                    VStack {
+                        FitnessTrackingView()
+                        Divider()
+                    }.padding(.vertical)
+                }
+                .background(.thinMaterial)
                 .tabItem() {
                     Image(systemName: "figure.strengthtraining.traditional")
                 }
-            HealthDataManagementView()
+                    
+                ZStack {
+                    VStack {
+                        HealthDataManagementView()
+                        Divider()
+                    }.padding(.vertical)
+                }
+                .background(.thinMaterial)
                 .tabItem() {
                     Image(systemName: "heart")
                 }
+            }
         }
     }
 

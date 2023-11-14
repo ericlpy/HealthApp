@@ -9,7 +9,13 @@ import SwiftUI
 
 struct HomepageView: View {
     var body: some View {
-        Text("home!")
+        VStack {
+            Text("Homepage")
+                .font(.title2)
+                .bold()
+            Divider()
+            Spacer()
+        }
     }
 }
 

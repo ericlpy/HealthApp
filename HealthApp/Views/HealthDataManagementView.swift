@@ -9,7 +9,13 @@ import SwiftUI
 
 struct HealthDataManagementView: View {
     var body: some View {
-        Text("health!")
+        VStack {
+            Text("Health Data Management")
+                .font(.title2)
+                .bold()
+            Divider()
+            Spacer()
+        }
     }
 }
 

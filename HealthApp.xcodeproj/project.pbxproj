@@ -85,8 +85,8 @@
 		5D4EF2FA2B034D0800D15739 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */,
 				5D4EF2FD2B034D5600D15739 /* HomepageView.swift */,
+				5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */,
 				5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */,
 				5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */,
 			);

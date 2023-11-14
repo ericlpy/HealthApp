@@ -9,7 +9,13 @@ import SwiftUI
 
 struct DietaryPlaningView: View {
     var body: some View {
-        Text("diet!")
+        VStack {
+            Text("Food Diary")
+                .font(.title2)
+                .bold()
+            Divider()
+            Spacer()
+        }
     }
 }
 
