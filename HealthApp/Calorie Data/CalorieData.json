@@ -1,0 +1,20 @@
+[
+    {
+        "id":0,
+        "name":"cola",
+        "type":"drink",
+        "calories":139,
+    },
+    {
+        "id":1,
+        "name":"friedRice",
+        "type":"food",
+        "calories":163,
+    },
+    {
+        "id":2,
+        "name":"test",
+        "type":"test",
+        "calories":0,
+    },
+]

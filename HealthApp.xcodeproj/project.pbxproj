@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D4EF2CE2B00CD5C00D15739 /* HealthAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2CD2B00CD5C00D15739 /* HealthAppApp.swift */; };
 		5D4EF2D02B00CD5C00D15739 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */; };
 		5D4EF2D22B00CD5E00D15739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */; };
 		5D4EF2D52B00CD5E00D15739 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D42B00CD5E00D15739 /* Preview Assets.xcassets */; };
@@ -17,11 +16,17 @@
 		5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FD2B034D5600D15739 /* HomepageView.swift */; };
 		5D4EF3002B034D6A00D15739 /* FitnessTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */; };
 		5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */; };
+		5DF77CA22B05F07100EDE5E2 /* FoodRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CA12B05F07100EDE5E2 /* FoodRecordView.swift */; };
+		5DF77CA52B06903800EDE5E2 /* FoodRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CA42B06903800EDE5E2 /* FoodRecord.swift */; };
+		5DF77CA72B0690A400EDE5E2 /* CalorieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DF77CA62B0690A400EDE5E2 /* CalorieData.json */; };
+		5DF77CA92B0690C800EDE5E2 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CA82B0690C800EDE5E2 /* DataModel.swift */; };
+		5DF77CAE2B0696E700EDE5E2 /* CalorieDataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CAD2B0696E700EDE5E2 /* CalorieDataTable.swift */; };
+		5DF77CB22B069AF100EDE5E2 /* HealthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CB12B069AF100EDE5E2 /* HealthApp.swift */; };
+		5DF77CB42B06A1E000EDE5E2 /* FoodRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CB32B06A1E000EDE5E2 /* FoodRecordDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D4EF2CA2B00CD5C00D15739 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D4EF2CD2B00CD5C00D15739 /* HealthAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAppApp.swift; sourceTree = "<group>"; };
 		5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D4EF2D42B00CD5E00D15739 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -31,6 +36,13 @@
 		5D4EF2FD2B034D5600D15739 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTrackingView.swift; sourceTree = "<group>"; };
 		5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataManagementView.swift; sourceTree = "<group>"; };
+		5DF77CA12B05F07100EDE5E2 /* FoodRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecordView.swift; sourceTree = "<group>"; };
+		5DF77CA42B06903800EDE5E2 /* FoodRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecord.swift; sourceTree = "<group>"; };
+		5DF77CA62B0690A400EDE5E2 /* CalorieData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CalorieData.json; sourceTree = "<group>"; };
+		5DF77CA82B0690C800EDE5E2 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		5DF77CAD2B0696E700EDE5E2 /* CalorieDataTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieDataTable.swift; sourceTree = "<group>"; };
+		5DF77CB12B069AF100EDE5E2 /* HealthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthApp.swift; sourceTree = "<group>"; };
+		5DF77CB32B06A1E000EDE5E2 /* FoodRecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecordDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +75,12 @@
 		5D4EF2CC2B00CD5C00D15739 /* HealthApp */ = {
 			isa = PBXGroup;
 			children = (
-				5D4EF2CD2B00CD5C00D15739 /* HealthAppApp.swift */,
-				5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */,
+				5DF77CB12B069AF100EDE5E2 /* HealthApp.swift */,
+				5DF77CAC2B0691F700EDE5E2 /* Calorie Data */,
 				5D4EF2FA2B034D0800D15739 /* Views */,
-				5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */,
 				5D4EF2D62B00CD5E00D15739 /* Persistence.swift */,
 				5D4EF2D82B00CD5E00D15739 /* HealthApp.xcdatamodeld */,
+				5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */,
 				5D4EF2D32B00CD5E00D15739 /* Preview Content */,
 			);
 			path = HealthApp;
@@ -85,12 +97,34 @@
 		5D4EF2FA2B034D0800D15739 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */,
 				5D4EF2FD2B034D5600D15739 /* HomepageView.swift */,
-				5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */,
+				5DF77CA02B05F01000EDE5E2 /* Dietary Planing */,
 				5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */,
 				5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5DF77CA02B05F01000EDE5E2 /* Dietary Planing */ = {
+			isa = PBXGroup;
+			children = (
+				5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */,
+				5DF77CB32B06A1E000EDE5E2 /* FoodRecordDetailView.swift */,
+				5DF77CA12B05F07100EDE5E2 /* FoodRecordView.swift */,
+			);
+			path = "Dietary Planing";
+			sourceTree = "<group>";
+		};
+		5DF77CAC2B0691F700EDE5E2 /* Calorie Data */ = {
+			isa = PBXGroup;
+			children = (
+				5DF77CA82B0690C800EDE5E2 /* DataModel.swift */,
+				5DF77CA62B0690A400EDE5E2 /* CalorieData.json */,
+				5DF77CA42B06903800EDE5E2 /* FoodRecord.swift */,
+				5DF77CAD2B0696E700EDE5E2 /* CalorieDataTable.swift */,
+			);
+			path = "Calorie Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF77CA72B0690A400EDE5E2 /* CalorieData.json in Resources */,
 				5D4EF2D52B00CD5E00D15739 /* Preview Assets.xcassets in Resources */,
 				5D4EF2D22B00CD5E00D15739 /* Assets.xcassets in Resources */,
 			);
@@ -165,12 +200,17 @@
 			files = (
 				5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */,
 				5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */,
+				5DF77CAE2B0696E700EDE5E2 /* CalorieDataTable.swift in Sources */,
+				5DF77CA92B0690C800EDE5E2 /* DataModel.swift in Sources */,
 				5D4EF2D72B00CD5E00D15739 /* Persistence.swift in Sources */,
 				5D4EF2FC2B034D4900D15739 /* DietaryPlaningView.swift in Sources */,
+				5DF77CB22B069AF100EDE5E2 /* HealthApp.swift in Sources */,
+				5DF77CA22B05F07100EDE5E2 /* FoodRecordView.swift in Sources */,
 				5D4EF3002B034D6A00D15739 /* FitnessTrackingView.swift in Sources */,
+				5DF77CB42B06A1E000EDE5E2 /* FoodRecordDetailView.swift in Sources */,
 				5D4EF2DA2B00CD5E00D15739 /* HealthApp.xcdatamodeld in Sources */,
 				5D4EF2D02B00CD5C00D15739 /* ContentView.swift in Sources */,
-				5D4EF2CE2B00CD5C00D15739 /* HealthAppApp.swift in Sources */,
+				5DF77CA52B06903800EDE5E2 /* FoodRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
