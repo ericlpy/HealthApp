@@ -15,6 +15,7 @@ struct FitnessTrackingView: View {
                 .bold()
             Divider()
             Spacer()
+            CalendarView()
         }
     }
 }

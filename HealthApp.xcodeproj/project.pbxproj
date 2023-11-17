@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39D78F152B076A0400E9B84A /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D78F142B076A0400E9B84A /* Day.swift */; };
+		39D78F172B076A4000E9B84A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D78F162B076A4000E9B84A /* CalendarView.swift */; };
 		5D4EF2D02B00CD5C00D15739 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */; };
 		5D4EF2D22B00CD5E00D15739 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */; };
 		5D4EF2D52B00CD5E00D15739 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D4EF2D42B00CD5E00D15739 /* Preview Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39D78F142B076A0400E9B84A /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		39D78F162B076A4000E9B84A /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		5D4EF2CA2B00CD5C00D15739 /* HealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D4EF2CF2B00CD5C00D15739 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5D4EF2D12B00CD5E00D15739 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				5DF77CB12B069AF100EDE5E2 /* HealthApp.swift */,
+				39D78F142B076A0400E9B84A /* Day.swift */,
 				5DF77CAC2B0691F700EDE5E2 /* Calorie Data */,
 				5D4EF2FA2B034D0800D15739 /* Views */,
 				5D4EF2D62B00CD5E00D15739 /* Persistence.swift */,
@@ -102,6 +107,7 @@
 				5DF77CA02B05F01000EDE5E2 /* Dietary Planing */,
 				5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */,
 				5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */,
+				39D78F162B076A4000E9B84A /* CalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,10 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D78F152B076A0400E9B84A /* Day.swift in Sources */,
 				5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */,
 				5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */,
 				5DF77CAE2B0696E700EDE5E2 /* CalorieDataTable.swift in Sources */,
 				5DF77CA92B0690C800EDE5E2 /* DataModel.swift in Sources */,
+				39D78F172B076A4000E9B84A /* CalendarView.swift in Sources */,
 				5D4EF2D72B00CD5E00D15739 /* Persistence.swift in Sources */,
 				5D4EF2FC2B034D4900D15739 /* DietaryPlaningView.swift in Sources */,
 				5DF77CB22B069AF100EDE5E2 /* HealthApp.swift in Sources */,
