@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct CalendarView: View {
-    @StateObject var dayStore = DayStore()
+    @ObservedObject var dayStore: DayStore
     @State private var draggingItem = 0.0
     @State private var showingPopover = false
+    init(dayStore: DayStore) {
+        self.dayStore = dayStore
+    }
+     
     var body: some View {
         ZStack {
             Button(action: {
@@ -99,8 +103,4 @@ struct CalendarView: View {
     func XOffset(_ item: Int) -> Double {
         return Double(draggingItem * 240 + 120 * Double(item))
     }
-}
-
-#Preview {
-    CalendarView()
 }
