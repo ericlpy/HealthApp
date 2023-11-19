@@ -2,7 +2,7 @@
 //  CalendarView.swift
 //  HealthApp
 //
-//  Created by Sunny on 11/16/23.
+//  Created by Chan King Yeung on 11/16/23.
 //
 
 import SwiftUI

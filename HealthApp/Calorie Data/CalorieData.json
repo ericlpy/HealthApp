@@ -3,18 +3,30 @@
         "id":0,
         "name":"cola",
         "type":"drink",
-        "calories":139,
+        "calories":139
     },
     {
         "id":1,
         "name":"friedRice",
         "type":"food",
-        "calories":163,
+        "calories":163
     },
     {
         "id":2,
-        "name":"test",
-        "type":"test",
-        "calories":0,
+        "name":"benchPressing",
+        "type":"sport",
+        "calories":33
     },
+    {
+        "id":3,
+        "name":"weightLifting",
+        "type":"sport",
+        "calories":11
+    },
+    {
+        "id":4,
+        "name":"pullDowning",
+        "type":"sport",
+        "calories":22
+    }
 ]
