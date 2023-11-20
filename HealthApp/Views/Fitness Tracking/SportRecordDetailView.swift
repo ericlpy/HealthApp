@@ -16,7 +16,7 @@ struct SportRecordDetailView: View {
     @State var place: String
     @State var finished: Bool
     @State var selectedSportsArray: [Sport]
-    @State var showActivitySheet = false
+    @State var showSheet = false
     @State var selectedSport: Sport? = nil
 
     var threeColumnGrid = [GridItem(.flexible()),
@@ -85,7 +85,7 @@ struct SportRecordDetailView: View {
                         })
                     }
                     Button(action: {
-                        showActivitySheet = true
+                        showSheet = true
                     }, label: {
                         VStack {
                             Image(systemName: "plus.circle")
@@ -96,6 +96,7 @@ struct SportRecordDetailView: View {
                         .padding(.bottom, 25)
                     })
                 }
+                Spacer()
                 Button("Submit"){
                     submitRecord()
                     dismiss()
@@ -110,19 +111,17 @@ struct SportRecordDetailView: View {
             .padding(.horizontal)
             .background(Color(red: 0.949, green: 0.949, blue: 0.969))
             .padding(.top, -8)
-            .listRowBackground(Color.clear)
             .sheet(item: $selectedSport, content: { selectedSport in
                 ChooseSportView(selectedSportsArray: $selectedSportsArray, selectedSport: selectedSport)
                     .environmentObject(modelData)
             })
-            .sheet(isPresented: $showActivitySheet, content: {
+            .sheet(isPresented: $showSheet, content: {
                 ChooseSportView(selectedSportsArray: $selectedSportsArray, selectedSport: nil)
                     .environmentObject(modelData)
             })
         }
         .clipShape(RoundedRectangle(cornerRadius: 25))
         .padding()
-        .background(Color.black)
     }
         
     private func submitRecord() {

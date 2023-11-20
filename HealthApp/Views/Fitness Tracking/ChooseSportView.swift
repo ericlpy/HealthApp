@@ -49,64 +49,76 @@ struct ChooseSportView: View {
     
     var body: some View {
         let sportList = modelData.calorieDataTable.filter { $0.type == "sport"}
-        
-        Section {
-            LazyVGrid(columns: threeColumnGrid) {
-                ForEach(sportList, id: \.name) { item in
-                    Button(action: {
-                        name = item.name
-                    }, label: {
-                        Image(item.name)
+        VStack {
+            ScrollView {
+                LazyVGrid(columns: threeColumnGrid) {
+                    ForEach(sportList, id: \.name) { item in
+                        Button(action: {
+                            name = item.name
+                        }, label: {
+                            Image(item.name)
+                                .resizable()
+                                .scaledToFit()
+                                .clipShape(.circle)
+                                .background(Circle().fill(.white).shadow(color: Color.black.opacity(0.5), radius: 6, x: 0, y: 3))
+                                .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                        })
+                        .disabled(tmp_array!.contains(where: { $0.name == item.name }) || name == item.name)
+                        .overlay(Circle().fill(Color.gray.opacity(tmp_array!.contains(where: { $0.name == item.name }) || name == item.name ? 0.5 : 0)))
+                        .overlay(Image(systemName: "checkmark.circle")
                             .resizable()
                             .scaledToFit()
-                            .clipShape(.circle)
+                            .frame(width: 50)
+                            .opacity(name == item.name ? 1.0 : 0.0))
+                    }
+                    ForEach(0..<100) { _ in
+                        Circle()
+                            .scaledToFit()
+                            .background(Circle().fill(.white).shadow(color: Color.black.opacity(0.5), radius: 6, x: 0, y: 3))
                             .overlay(Circle().stroke(Color.black, lineWidth: 1))
-                    })
-                    .disabled(tmp_array!.contains(where: { $0.name == item.name }) || name == item.name)
-                    .overlay(Circle().fill(Color.gray.opacity(tmp_array!.contains(where: { $0.name == item.name }) || name == item.name ? 0.5 : 0)))
-                    .overlay(Image(systemName: "checkmark.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50)
-                        .opacity(name == item.name ? 1.0 : 0.0))
-                }
-            }
-        }
-        Divider()
-        ForEach(tmp_array!) { sport in
-            Text(sport.name!)
-        }
-        Divider()
-        
-        
-        if let selectedSport {
-            Text(selectedSport.name!)
-        } else {
-            Text("No Record")
-        }
-        Section {
-            LabeledContent {
-                Picker("", selection: $number) {
-                    ForEach(1...1000, id: \.self) {
-                        Text("\($0)" + String(choice == "Set" ? "" : " min"))
                     }
                 }
-                .pickerStyle(.wheel)
-            } label: {
-                Picker("", selection: $choice) {
-                    ForEach(choices, id: \.self) { item in
-                        Text(item)
+                .padding([.horizontal,.top])
+            }
+            Spacer()
+            Form {
+                Section {
+                    LabeledContent {
+                        Picker("", selection: $number) {
+                            ForEach(1...1000, id: \.self) {
+                                Text("\($0)" + String(choice == "Set" ? "" : " min"))
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                    } label: {
+                        Picker("", selection: $choice) {
+                            ForEach(choices, id: \.self) { item in
+                                Text(item)
+                            }
+                        }
                     }
+                    .frame(height: 50)
                 }
             }
-            .frame(height: 100)
+            .scrollDisabled(true)
+            .frame(maxHeight: 120)
+            Button("Select"){
+                submitItem(calorie: sportList.first(where: {$0.name == name})!.calories)
+                dismiss()
+            }
+            .disabled(name == "")
+            .padding()
+            .foregroundColor(.white)
+            .background(name == "" ? Color.gray : Color.blue)
+            .cornerRadius(40)
+            .padding(.bottom)
         }
-        
-        Button("Select"){
-            submitItem(calorie: sportList.first(where: {$0.name == name})!.calories)
-            dismiss()
-        }
-        .disabled(name == "")
+        .background(Color(red: 0.949, green: 0.949, blue: 0.969))
+        .clipShape(RoundedRectangle(cornerRadius: 25))
+        .padding()
+//        .padding(.horizontal)
+//        
+//        .padding(.top, -8)
     }
     
     private func submitItem(calorie: Float) {
@@ -126,7 +138,4 @@ struct ChooseSportView: View {
     }
 }
 
-
-
 var modelData = ModelData()
-

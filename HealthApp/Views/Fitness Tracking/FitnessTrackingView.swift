@@ -11,62 +11,78 @@ struct FitnessTrackingView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var dayStore = DayStore()
     @State var currentDate: Date = Date()
-    @State var showActivitySheet = false
+    @State var showSheet = false
     @State var selectedItem: SportsRecord?
     @FetchRequest(
+        entity: SportsRecord.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \SportsRecord.date, ascending: true)],
         predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: Date()) as CVarArg, Calendar.current.startOfDay(for: Date() + 86400) as CVarArg),
         animation: .default)
     var records: FetchedResults<SportsRecord>
+    
+    @FetchRequest(
+        entity: UserRecord.entity(),
+        sortDescriptors: [],
+        animation: .default)
+    var user: FetchedResults<UserRecord>
+    
     var body: some View {
+        if (user.isEmpty) {
+            Text("User Not Found")
+        }
         VStack {
             Text("Fitness Tracking")
                 .font(.title2)
                 .bold()
             Divider()
-//            NavigationView {
-                List {
-                    ForEach(records.indices, id: \.self) { index in
-                        Button(action: {
-                            selectedItem = records[index]
-                        }, label: {
-                            if (!records[index].isDeleted) {
-                                SportRecordRow(record: records[index])
-                                    .foregroundColor(.black)
-                            }
-                        })
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, -10)
-                        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                        .swipeActions(edge: .leading) {	
-                            Button {
-                                finishRecord(record: records[index])
-                            } label: {
-                                Text("Done")
-                                    .bold()
-                            }
-                            .tint(.green)
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                    .frame(alignment: .leading)
+            List {
+                ForEach(records.indices, id: \.self) { index in
                     Button(action: {
-                        showActivitySheet = true
+                        selectedItem = records[index]
                     }, label: {
-                        Text("+")
+                        if (!records[index].isDeleted) {
+                            SportRecordRow(record: records[index])
+                                .foregroundColor(.black)
+                        }
                     })
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, -10)
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .swipeActions(edge: .leading) {
+                        Button {
+                            finishRecord(record: records[index])
+                        } label: {
+                            Text("Done")
+                                .bold()
+                        }
+                        .tint(.green)
+                    }
                 }
-                .listStyle(.plain)
-                .sheet(item: $selectedItem, content: { item in
-                    SportRecordDetailView(record: item)
-                        .environmentObject(modelData)
-//                        .presentationDetents([.large, .medium, .fraction(0.55)])
+                .onDelete(perform: deleteItems)
+                .frame(alignment: .leading)
+                Button(action: {
+                    showSheet = true
+                }, label: {
+                    ZStack {
+                        Color.gray
+                            .opacity(0.2)
+                            .frame(height: 140)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 60))
+                            .foregroundColor(.gray)
+                    }.padding(.horizontal, -10)
                 })
-                .sheet(isPresented: $showActivitySheet, content: {
-                    SportRecordDetailView(record: nil)
-                        .environmentObject(modelData)
-                })
-//            }
+            }
+            .listStyle(.plain)
+            .sheet(item: $selectedItem, content: { item in
+                SportRecordDetailView(record: item)
+                    .environmentObject(modelData)
+            })
+            .sheet(isPresented: $showSheet, content: {
+                SportRecordDetailView(record: nil)
+                    .environmentObject(modelData)
+            })
             Spacer()
             CalendarView(dayStore: dayStore)
                 .onChange(of: dayStore.currentDate) {
@@ -80,14 +96,8 @@ struct FitnessTrackingView: View {
         return datePredicate
     }
     
-//    private func makeNewPredicate(currentDate: Date) -> NSPredicate {
-//        let datePredicate = NSPredicate(format: "date >= %@ && date <= %@ && isDelete == false", Calendar.current.startOfDay(for: currentDate) as CVarArg, Calendar.current.startOfDay(for: currentDate + 86400) as CVarArg)
-//        return datePredicate
-//    }
-    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-//            print(offsets[0])
             offsets.map { records[$0] }.forEach(viewContext.delete)
 
             do  {
@@ -98,7 +108,6 @@ struct FitnessTrackingView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
-//            records.nsPredicate.
         }
     }
     
