@@ -21,6 +21,8 @@
 		5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FD2B034D5600D15739 /* HomepageView.swift */; };
 		5D4EF3002B034D6A00D15739 /* FitnessTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */; };
 		5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */; };
+		5D5802C02B07E5CD00D5C7DB /* AddNewRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5802BF2B07E5CD00D5C7DB /* AddNewRecordView.swift */; };
+		5DECC5DE2B08D54C0069D042 /* AddNewRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DECC5DD2B08D54C0069D042 /* AddNewRecordDetailView.swift */; };
 		5DF77CA22B05F07100EDE5E2 /* FoodRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CA12B05F07100EDE5E2 /* FoodRecordView.swift */; };
 		5DF77CA52B06903800EDE5E2 /* FoodRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF77CA42B06903800EDE5E2 /* FoodRecord.swift */; };
 		5DF77CA72B0690A400EDE5E2 /* CalorieData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DF77CA62B0690A400EDE5E2 /* CalorieData.json */; };
@@ -46,6 +48,8 @@
 		5D4EF2FD2B034D5600D15739 /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
 		5D4EF2FF2B034D6A00D15739 /* FitnessTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessTrackingView.swift; sourceTree = "<group>"; };
 		5D4EF3012B034D8200D15739 /* HealthDataManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataManagementView.swift; sourceTree = "<group>"; };
+		5D5802BF2B07E5CD00D5C7DB /* AddNewRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRecordView.swift; sourceTree = "<group>"; };
+		5DECC5DD2B08D54C0069D042 /* AddNewRecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRecordDetailView.swift; sourceTree = "<group>"; };
 		5DF77CA12B05F07100EDE5E2 /* FoodRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecordView.swift; sourceTree = "<group>"; };
 		5DF77CA42B06903800EDE5E2 /* FoodRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecord.swift; sourceTree = "<group>"; };
 		5DF77CA62B0690A400EDE5E2 /* CalorieData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CalorieData.json; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				5D4EF2FB2B034D4900D15739 /* DietaryPlaningView.swift */,
+				5DECC5DD2B08D54C0069D042 /* AddNewRecordDetailView.swift */,
+				5D5802BF2B07E5CD00D5C7DB /* AddNewRecordView.swift */,
 				5DF77CB32B06A1E000EDE5E2 /* FoodRecordDetailView.swift */,
 				5DF77CA12B05F07100EDE5E2 /* FoodRecordView.swift */,
 			);
@@ -226,6 +232,7 @@
 				5D4EF2FE2B034D5600D15739 /* HomepageView.swift in Sources */,
 				39F9176C2B094C2400B2A8F3 /* SportRecordDetailView.swift in Sources */,
 				5D4EF3022B034D8200D15739 /* HealthDataManagementView.swift in Sources */,
+				5DECC5DE2B08D54C0069D042 /* AddNewRecordDetailView.swift in Sources */,
 				5DF77CAE2B0696E700EDE5E2 /* CalorieDataTable.swift in Sources */,
 				5DF77CA92B0690C800EDE5E2 /* DataModel.swift in Sources */,
 				39D78F172B076A4000E9B84A /* CalendarView.swift in Sources */,
@@ -238,6 +245,7 @@
 				5D4EF2DA2B00CD5E00D15739 /* HealthApp.xcdatamodeld in Sources */,
 				5D4EF2D02B00CD5C00D15739 /* ContentView.swift in Sources */,
 				3985AE0C2B07FF380044A3EF /* SportRecordRow.swift in Sources */,
+				5D5802C02B07E5CD00D5C7DB /* AddNewRecordView.swift in Sources */,
 				5DF77CA52B06903800EDE5E2 /* FoodRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

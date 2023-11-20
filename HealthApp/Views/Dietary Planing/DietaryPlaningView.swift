@@ -8,34 +8,47 @@
 import SwiftUI
 
 struct DietaryPlaningView: View {
-    @EnvironmentObject var modelData:ModelData
-    @State var showSheet = false
+    
+//    @EnvironmentObject var modelData:ModelData
+    @State var showAddSheet: Bool = false
+    @State var selectedRecord:FoodRecord? = nil
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \FoodRecord.id, ascending: true)],
+        animation: .default)
+    private var foodRecords: FetchedResults<FoodRecord>
+    
     var body: some View {
         Text("Food Diary")
             .font(.title2)
             .bold()
         Divider()
-//            Text(modelData.calorieDataTable[0].name)
-        NavigationStack{
-            ScrollView{
-//                List(modelData.calorieDataTable){ record in
-//                    NavigationLink(destination: FoodRecordDetailView()) {
-//                        FoodRecordView()
-//                    }
-//                }
-                Button(action: {showSheet = !showSheet}, label: {
-                    FoodRecordView()
+        ScrollView(showsIndicators: false, content: {
+            ForEach(foodRecords){ record in
+                Button(action: {
+                    selectedRecord = record
+                }, label: {
+                    FoodRecordView(foodRecord: record)
                 }).foregroundColor(Color(.black))
             }
-        }
-        .padding()
-        .sheet(isPresented: $showSheet, content: {
-            FoodRecordDetailView()
+            Button(action: {
+                selectedRecord = nil
+                showAddSheet = true
+            }, label: {
+                AddNewRecordView()
+            }).fullScreenCover(isPresented: $showAddSheet, content: {
+                AddNewRecordDetailView()
+            })
         })
+        .padding(.horizontal)
+        .sheet(item: $selectedRecord){ record in
+            FoodRecordDetailView(foodRecord: record)
+        }
     }
 }
 
 #Preview {
     DietaryPlaningView()
-        .environmentObject(ModelData())
+//        .environmentObject(ModelData())
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

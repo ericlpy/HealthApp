@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct FoodRecordDetailView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.dismiss) private var dismiss
+    @State var foodRecord: FoodRecord?
+    
+    @State var meal = ""
+    @State var date = Date()
+    @State var calorieGained = 0
+    @State var amount = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(foodRecord!.meal!)
+            .font(.largeTitle)
+            .bold()
+        Divider()
+        Spacer()
+            
+        Button("Save"){
+            dismiss()
+        }
+        
     }
 }
 

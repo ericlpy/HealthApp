@@ -94,7 +94,7 @@ struct SportRecordRow: View {
     SportRecordRow(record: testingData())
 }
 
-var persistenceController = PersistenceController.shared
+//var persistenceController = PersistenceController.shared
 func testingData() -> SportsRecord {
     let viewContext = persistenceController.container.viewContext
     let newItem = SportsRecord(context: viewContext)

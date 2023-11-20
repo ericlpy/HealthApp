@@ -16,7 +16,32 @@ struct PersistenceController {
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
+        
         let viewContext = result.container.viewContext
+        
+//        creating sample data
+        let newItem = FoodRecord(context: viewContext)
+        let food1 = Food(context: viewContext)
+        let food2 = Food(context: viewContext)
+        food1.name = "cola"
+        food2.name = "friedRice"
+        newItem.calorieGained = 100
+        newItem.date = Date()
+        newItem.id = UUID()
+        newItem.meal = "lunch"
+        newItem.food = NSSet(array: [food1, food2])
+        
+        let newItem2 = FoodRecord(context: viewContext)
+        let food3 = Food(context: viewContext)
+        let food4 = Food(context: viewContext)
+        food3.name = "cola"
+        food4.name = "friedRice"
+        newItem2.calorieGained = 150
+        newItem2.date = Date()
+        newItem2.id = UUID()
+        newItem2.meal = "dinner"
+        newItem2.food = NSSet(array: [food3, food4])
+        
         for _ in 0..<4 {
             let newRecord = SportsRecord(context: viewContext)
             let sport1 = Sport(context: viewContext)
