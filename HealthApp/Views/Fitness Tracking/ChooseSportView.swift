@@ -116,9 +116,6 @@ struct ChooseSportView: View {
         .background(Color(red: 0.949, green: 0.949, blue: 0.969))
         .clipShape(RoundedRectangle(cornerRadius: 25))
         .padding()
-//        .padding(.horizontal)
-//        
-//        .padding(.top, -8)
     }
     
     private func submitItem(calorie: Float) {

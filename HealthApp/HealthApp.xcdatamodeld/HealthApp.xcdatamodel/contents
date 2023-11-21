@@ -31,7 +31,7 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="venue" optional="YES" attributeType="String"/>
-        <relationship name="sports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="sports" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Sport"/>
     </entity>
     <entity name="UserRecord" representedClassName="UserRecord" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -42,5 +42,12 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="fri" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="mon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="sat" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="sun" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="thu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="tue" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
+        <relationship name="wed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sport"/>
     </entity>
 </model>

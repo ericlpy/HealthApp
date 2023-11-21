@@ -34,11 +34,13 @@ struct CalendarView: View {
                 .presentationCompactAdaptation(.popover)
                 
             }
-            .offset(y:-70)
+            .offset(y:-90)
             .onChange(of: dayStore.currentDate) {
                 showingPopover = false
                 dayStore.setDate(date: dayStore.currentDate)
             }
+            Text(dayStore.dateToString(date: dayStore.currentDate, format: "EEEE"))
+                .offset(y:-55)
             ForEach(dayStore.Days) { day in
                 VStack {
                     VStack {
@@ -56,14 +58,15 @@ struct CalendarView: View {
                 .offset(x: XOffset(day.id), y: YOffset(XOffset(day.id)))
                 .padding(.horizontal, 20)
             }
+            .offset(y:10)
         }
-        .frame(height: 180)
+        .frame(height: 210)
 //        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
         .background(
             Ellipse()
                 .strokeBorder(.black, lineWidth: 5)
                 .frame(width: 608, height: 223)
-                .offset(y: 113)
+                .offset(y: 123)
         )
         .gesture(
             DragGesture()
@@ -102,5 +105,12 @@ struct CalendarView: View {
     
     func XOffset(_ item: Int) -> Double {
         return Double(draggingItem * 240 + 120 * Double(item))
+    }
+}
+
+struct CalendarView_Previews: PreviewProvider {
+    static var dayStore = DayStore()
+    static var previews: some View {
+        CalendarView(dayStore: dayStore)
     }
 }

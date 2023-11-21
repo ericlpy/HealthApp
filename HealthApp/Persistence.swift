@@ -122,6 +122,10 @@ struct PersistenceController {
             newRecord.venue = venue.randomElement()
             newRecord.sports = NSSet(array: [sport1, sport2])
         }
+        
+        let userRecord = UserRecord(context: viewContext)
+        userRecord.id = UUID()
+        
         do {
             try viewContext.save()
         } catch {

@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct HomepageView: View {
-    @State var burnTarget: Int = -100
-    @State var calorieIntaked: Int = 901
-    @State var intakeTarget: Int = -10
-    @State var calorieNeedBurn = 1000
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \SportsRecord.date, ascending: true)],
         predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: Date()) as CVarArg, Calendar.current.startOfDay(for: Date() + 86400) as CVarArg),
         animation: .default)
     var records: FetchedResults<SportsRecord>
+    
+    @FetchRequest(entity: UserRecord.entity(),
+                  sortDescriptors: [],
+                  animation: .default)
+    var userArray: FetchedResults<UserRecord>
+    
+    @FetchRequest(entity: FoodRecord.entity(),
+                  sortDescriptors: [NSSortDescriptor(keyPath: \SportsRecord.date, ascending: true)],
+                  predicate: NSPredicate(format: "date >= %@ && date <= %@", Calendar.current.startOfDay(for: Date()) as CVarArg, Calendar.current.startOfDay(for: Date() + 86400) as CVarArg),
+                  animation: .default)
+    var foodArray: FetchedResults<FoodRecord>
     
     var body: some View {
         VStack {
@@ -31,7 +38,8 @@ struct HomepageView: View {
             HStack {
                 VStack {
                     Text("Calories Intaked")
-                    Text(String(calorieIntaked) + " cal")
+                    Text(String(Int(getCalorieIntaked())) + " cal")
+                        .lineLimit(1)
                         .bold()
                         .font(.largeTitle)
                 }
@@ -43,7 +51,8 @@ struct HomepageView: View {
                 .padding(.leading)
                 VStack {
                     Text("Target")
-                    Text(String(intakeTarget) + " cal")
+                    Text(String(getTargetIntake()) + " cal")
+                        .lineLimit(1)
                         .bold()
                         .font(.largeTitle)
                 }
@@ -68,7 +77,7 @@ struct HomepageView: View {
                         )
                         .frame(width: 100)
                     Circle()
-                        .trim(from: 0, to: CGFloat(getCalorieBurned()/Float(calorieNeedBurn)))
+                        .trim(from: 0, to: CGFloat(getCalorieBurned()/(getTargetBurn() == 0 ? 1 : getTargetBurn())))
                         .stroke(
                             Color(red: 0.36470588235294116, green: 0.8156862745098039, blue: 0.8196078431372549),
                             style: StrokeStyle(
@@ -78,7 +87,7 @@ struct HomepageView: View {
                         )
                         .frame(width: 100)
                         .rotationEffect(.degrees(-90))
-                    Text(String(Int(getCalorieBurned()/Float(calorieNeedBurn)*100)) + "%")
+                    Text(String(Int(getCalorieBurned()/(getTargetBurn() == 0 ? 1 : getTargetBurn()) * 100) >= 100 ? 100 : Int(getCalorieBurned()/(getTargetBurn() == 0 ? 1 : getTargetBurn()) * 100)) + "%")
                         .foregroundColor(Color(red: 0.36470588235294116, green: 0.8156862745098039, blue: 0.8196078431372549))
                         .font(.system(size: 30))
                         .bold()
@@ -101,7 +110,7 @@ struct HomepageView: View {
 
                     Text("Target burn")
                         .bold()
-                    Text(String(burnTarget) + " cal")
+                    Text(String(getTargetBurn()) + " cal")
                         .bold()
                         .font(.largeTitle)
                         .frame(maxWidth:.infinity, alignment: .trailing)
@@ -132,11 +141,41 @@ struct HomepageView: View {
     func getCalorieBurned() -> Float {
         var calorieBurned: Float = 0
         for record in records {
-            for sport in Array(record.sports! as! Set<Sport>) {
-                calorieBurned += sport.calorieBurned
+            if record.finished {
+                for sport in Array(record.sports! as! Set<Sport>) {
+                    if (sport.set != 0) {
+                        calorieBurned += sport.calorieBurned * Float(sport.set)
+                    } else {
+                        calorieBurned += sport.calorieBurned * Float(sport.duration)
+                    }
+                }
             }
         }
         return calorieBurned
+    }
+    
+    func getCalorieIntaked() -> Float {
+        var calorieIntaked: Float = 0
+        for record in foodArray {
+            calorieIntaked += Float(record.calorieGained)
+        }
+        return calorieIntaked
+    }
+    
+    func getTargetBurn() -> Float {
+        if userArray.count == 0 {
+            return 0
+        } else {
+            return userArray[0].calorieBurnedPerDay
+        }
+    }
+    
+    func getTargetIntake() -> Float {
+        if userArray.count == 0 {
+            return 0
+        } else {
+            return userArray[0].calorieIntakePerDay
+        }
     }
 }
 

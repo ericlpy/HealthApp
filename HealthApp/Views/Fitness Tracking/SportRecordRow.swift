@@ -14,12 +14,12 @@ struct SportRecordRow: View {
         HStack {
             VStack (alignment: .leading) {
                 HStack {
-                    Text(record.name!)
+                    Text(record.name ?? "")
                         .lineLimit(nil)
                         .frame(minWidth: .zero, maxWidth: 115, minHeight: .zero, maxHeight: .zero)
                         .fixedSize(horizontal: true, vertical: false)
                     Text("-")
-                    Text(record.venue!)
+                    Text(record.venue ?? "")
                         .lineLimit(nil)
                         .frame(minWidth: .zero, maxWidth: 115, minHeight: .zero, maxHeight: .zero)
                         .fixedSize(horizontal: true, vertical: false)
@@ -27,27 +27,29 @@ struct SportRecordRow: View {
                 Divider().frame(maxWidth: 100)
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(Array(record.sports! as! Set<Sport>), id: \.self) { sport in
-                            VStack {
-                                if let image = sport.image {
-                                    Image(image)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                        .clipShape(.circle)
-                                        .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                        if let sports = record.sports {
+                            ForEach(Array(sports as! Set<Sport>), id: \.self) { sport in
+                                VStack {
+                                    if let image = sport.image {
+                                        Image(image)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 50, height: 50)
+                                            .clipShape(.circle)
+                                            .overlay(Circle().stroke(Color.black, lineWidth: 1))
+                                    }
+                                    if sport.set != 0 {
+                                        Text(String(sport.set))
+                                            .lineLimit(1)
+                                            .fixedSize(horizontal: true, vertical: false)
+                                    } else {
+                                        Text(String(sport.duration) + " min")
+                                            .lineLimit(1)
+                                            .fixedSize(horizontal: true, vertical: false)
+                                    }
                                 }
-                                if sport.set != 0 {
-                                    Text(String(sport.set))
-                                        .lineLimit(1)
-                                        .fixedSize(horizontal: true, vertical: false)
-                                } else {
-                                    Text(String(sport.duration) + " min")
-                                        .lineLimit(1)
-                                        .fixedSize(horizontal: true, vertical: false)
-                                }
+                                .padding(.trailing)
                             }
-                            .padding(.trailing)
                         }
                     }
                 }
@@ -55,16 +57,19 @@ struct SportRecordRow: View {
             .padding([.top, .leading, .bottom])
             Spacer()
             VStack {
-                Text(getTime(date: record.date!))
-                    .font(.largeTitle)
-                
+                if let date = record.date {
+                    Text(getTime(date: date))
+                        .font(.largeTitle)
+                }
                 Text("Total Calories")
                     .lineLimit(nil)
                     .frame(minWidth: .zero, maxWidth: 105, minHeight: .zero, maxHeight: .zero)
                     .fixedSize(horizontal: true, vertical: false)
-                Text(getTotalCalories(array: Array(record.sports! as! Set<Sport>)))
-                    .font(.system(size: 30))
-                    .bold()
+                if let sports = record.sports {
+                    Text(getTotalCalories(array: Array(sports as! Set<Sport>)))
+                        .font(.system(size: 30))
+                        .bold()
+                }
             }
             .padding(.trailing)
         }

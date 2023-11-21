@@ -23,7 +23,7 @@ struct SportRecordDetailView: View {
                            GridItem(.flexible()),
                            GridItem(.flexible())]
     
-    init(record: SportsRecord?) {
+    init(record: SportsRecord?, time: Date?) {
         if let r = record {
             self.record = record
             _time = State(initialValue: r.date!)
@@ -33,7 +33,7 @@ struct SportRecordDetailView: View {
             _selectedSportsArray = State(initialValue: Array(r.sports! as! Set<Sport>))
         } else {
             self.record = nil
-            _time = State(initialValue: Date())
+            _time = State(initialValue: time!)
             _place = State(initialValue: "")
             _name = State(initialValue: "")
             _finished = State(initialValue: false)
@@ -157,6 +157,6 @@ struct SportRecordDetailView: View {
 var test: SportsRecord? = nil
 
 #Preview {
-    SportRecordDetailView(record: nil)
+    SportRecordDetailView(record: nil, time: nil)
 }
 

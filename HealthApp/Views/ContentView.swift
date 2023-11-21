@@ -12,17 +12,18 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-//    @FetchRequest(
-//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-//        animation: .default)
-//    private var items: FetchedResults<Item>
-
+    @FetchRequest(entity: UserRecord.entity(),
+                  sortDescriptors: [],
+                  animation: .default)
+    var userArray: FetchedResults<UserRecord>
+    
     var body: some View {
         VStack {
             TabView {
                 ZStack {
                     VStack {
                         HomepageView()
+                            .environment(\.managedObjectContext, viewContext)
                         Divider()
                     }.padding(.vertical)
                 }
@@ -33,6 +34,7 @@ struct ContentView: View {
                 ZStack {
                     VStack {
                         DietaryPlaningView()
+                            .environment(\.managedObjectContext, viewContext)
                         Divider()
                     }.padding(.vertical)
                 }
@@ -42,7 +44,12 @@ struct ContentView: View {
                 }
                 ZStack {
                     VStack {
-                        FitnessTrackingView()
+                        if checkUser() {
+                            FitnessTrackingView()
+                                .environment(\.managedObjectContext, viewContext)
+                        } else {
+                            ChoosePlanView(planExist: userArray.isEmpty).environment(\.managedObjectContext, viewContext)
+                        }
                         Divider()
                     }.padding(.vertical)
                 }
@@ -54,6 +61,7 @@ struct ContentView: View {
                 ZStack {
                     VStack {
                         HealthDataManagementView()
+                            .environment(\.managedObjectContext, viewContext)
                         Divider()
                     }.padding(.vertical)
                 }
@@ -64,7 +72,18 @@ struct ContentView: View {
             }.accentColor(.black)
         }
     }
+    
+    private func checkUser() -> Bool {
+        if userArray.isEmpty {
+            return false
+        } else if userArray[0].chosenPlan == nil {
+            return false
+        } else {
+            return true
+        }
+    }
 }
+
 
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -73,6 +92,10 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-#Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+struct ContentView_Previews: PreviewProvider {
+    static let controller = PersistenceController.preview
+    static var previews: some View {
+        ContentView()
+            .environment(\.managedObjectContext, controller.container.viewContext)
+    }
 }
