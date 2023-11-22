@@ -40,6 +40,18 @@
         "name":"Iced milk tea",
         "type":"Drink",
         "calories":23
+    },
+    {
+        "id":8,
+        "name":"Biscuit",
+        "type":"Food",
+        "calories":552
+    },
+    {
+        "id":9,
+        "name":"Green tea",
+        "type":"Drink",
+        "calories":29
     }
     
 ]

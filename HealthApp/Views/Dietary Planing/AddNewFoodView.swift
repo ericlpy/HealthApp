@@ -57,7 +57,7 @@ struct AddNewFoodView: View {
                 }
                 if name != "" {
                     Picker(selection: $amount, label: Text("Amount")){
-                        ForEach(Array(stride(from: 100, to: 2001, by: 100)), id: \.self){ amount in
+                        ForEach(Array(stride(from: 10, to: 2001, by: 10)), id: \.self){ amount in
                             type == "Food" ? Text("\(amount)g") : Text("\(amount)mL")
                         }
                     }

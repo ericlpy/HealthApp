@@ -131,6 +131,7 @@ struct DietaryPlaningView: View {
                 .presentationDetents([.height(sheetHeight)])
         }
         CalendarView(dayStore: dayStore)
+            .frame(height: 50)
             .onChange(of: dayStore.currentDate) {
                 foodRecords.nsPredicate = makeDatePredicate(currentDate: dayStore.currentDate)
             }
