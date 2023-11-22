@@ -1,14 +1,14 @@
 [
     {
         "id":0,
-        "name":"cola",
-        "type":"drink",
+        "name":"Cola",
+        "type":"Drink",
         "calories":37.5
     },
     {
         "id":1,
-        "name":"friedRice",
-        "type":"food",
+        "name":"Fried rice",
+        "type":"Food",
         "calories":163
     },
     {
@@ -31,8 +31,15 @@
     },
     {
         "id":6,
-        "name":"rice",
-        "type":"food",
+        "name":"Rice",
+        "type":"Food",
         "calories":130
+    },
+    {
+        "id":7,
+        "name":"Iced milk tea",
+        "type":"Drink",
+        "calories":23
     }
+    
 ]

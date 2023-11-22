@@ -29,9 +29,9 @@ struct AddNewFoodView: View {
     }
     
     var body: some View {
-        let foodList = modelData.calorieDataTable.filter { $0.type == "food"}
-        let drinkList = modelData.calorieDataTable.filter { $0.type == "drink"}
-        let list = modelData.calorieDataTable.filter { $0.type == "food" || $0.type == "drink"}
+        let foodList = modelData.calorieDataTable.filter { $0.type == "Food"}
+        let drinkList = modelData.calorieDataTable.filter { $0.type == "Drink"}
+        let list = modelData.calorieDataTable.filter { $0.type == "Food" || $0.type == "Drink"}
 
         Text("Add new food / drink")
             .font(.title)
@@ -40,13 +40,13 @@ struct AddNewFoodView: View {
         Form(content: {
             Section{
                 Picker(selection: $type, label: Text("Type")){
-                    ForEach(["food", "drink"], id: \.self){ type in
+                    ForEach(["Food", "Drink"], id: \.self){ type in
                         Text(type)
                     }
                 }
                 if type != ""{
                     Picker(selection: $name, label: Text("Name")) {
-                        type == "food"
+                        type == "Food"
                         ? ForEach(foodList, id: \.name) { item in
                             Text(item.name)
                         }
@@ -58,7 +58,7 @@ struct AddNewFoodView: View {
                 if name != "" {
                     Picker(selection: $amount, label: Text("Amount")){
                         ForEach(Array(stride(from: 100, to: 2001, by: 100)), id: \.self){ amount in
-                            type == "food" ? Text("\(amount)g") : Text("\(amount)mL")
+                            type == "Food" ? Text("\(amount)g") : Text("\(amount)mL")
                         }
                     }
                 }

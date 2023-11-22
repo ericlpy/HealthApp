@@ -119,8 +119,8 @@ func testingData() -> FoodRecord {
     let newItem = FoodRecord(context: viewContext)
     let food1 = Food(context: viewContext)
     let food2 = Food(context: viewContext)
-    food1.name = "cola"
-    food2.name = "friedRice"
+    food1.name = "Cola"
+    food2.name = "Fried Rice"
     newItem.calorieGained = 100
     newItem.date = Date()
     newItem.id = UUID()
