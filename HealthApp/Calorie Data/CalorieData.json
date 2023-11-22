@@ -3,7 +3,7 @@
         "id":0,
         "name":"cola",
         "type":"drink",
-        "calories":139
+        "calories":37.5
     },
     {
         "id":1,
@@ -28,5 +28,11 @@
         "name":"pullDowning",
         "type":"sport",
         "calories":22
+    },
+    {
+        "id":6,
+        "name":"rice",
+        "type":"food",
+        "calories":130
     }
 ]

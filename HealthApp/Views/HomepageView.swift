@@ -51,7 +51,7 @@ struct HomepageView: View {
                 .padding(.leading)
                 VStack {
                     Text("Target")
-                    Text(String(getTargetIntake()) + " cal")
+                    Text(String(Int(getTargetIntake())) + " cal")
                         .lineLimit(1)
                         .bold()
                         .font(.largeTitle)
@@ -125,6 +125,7 @@ struct HomepageView: View {
             Text("Time to start your work")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
+                .bold()
             Image("poster")
                 .resizable()
                 .scaledToFit()

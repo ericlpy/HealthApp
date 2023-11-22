@@ -11,6 +11,14 @@ let sport = ["weightLifting", "pullDowning", "benchPressing"]
 let name = ["Testing 1", "Testing 2", "Testing 3", "Testing 4"]
 let venue = ["Home", "Gym", "Sport Center"]
 
+enum FoodName: String, CaseIterable{
+    case rice = "Rice"
+    case friedRice = "Fried rice"
+}
+enum DrinksName: String, CaseIterable{
+    case cola = "Cola"
+}
+
 struct PersistenceController {
     static let shared = PersistenceController()
 
